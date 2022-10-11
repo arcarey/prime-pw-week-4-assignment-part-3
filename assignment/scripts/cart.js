@@ -4,8 +4,14 @@ console.log('***** Cart Functions *****');
 
 let basket = [];
 function addItem(array, item){
-    if (array.isArray === false || item.isString === false){
-        return 'Error: addItem parameter 1 must be an array and parameter 2 must be a string'
-    }         //if the parameters array isn't and array and item isn't a string, return an error
-    
+    if (Array.isArray(array) == false || typeof (item) !== 'string'){  //if the parameters array isn't and array and item isn't a string, return an error
+        return 'Error: addItem() parameter 1 must be an array and parameter 2 must be a string';
+    } else {    
+        array.push(item);
+        return true;
+    }
 }
+console.log(addItem(1, 'bread'));
+console.log(addItem(basket, 1));
+console.log(addItem(basket, 'Bread'));
+console.log(basket);
