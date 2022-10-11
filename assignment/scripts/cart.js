@@ -4,13 +4,27 @@ console.log('***** Cart Functions *****');
 
 // create an empty basket
 let basket = [];
+// create the max number of items that can fit in the basket
+const maxItems = 5;
+
+// create a function that will later be used inside the next function to check if the baseket is full
+function isFull(array, fullItems) {
+    if (array.length >= fullItems){
+        return true;
+    } 
+    return false;
+}
 
 // create a function that adds items to the basket
 // I decided to make this function with 2 parameters so it could add a string to any array rather than just our basket
+
 function addItem(array, item){
     if (Array.isArray(array) == false || typeof (item) !== 'string'){  //if the parameters array isn't and array and item isn't a string, return an error
         return 'Error: addItem() parameter 1 must be an array and parameter 2 must be a string';
-    } else {    
+    } else {
+        if (isFull(array, maxItems)){    
+        return false;
+        }
         array.push(item);
         return true;
     }
@@ -23,6 +37,13 @@ console.log('expect true:', addItem(basket, 'Bread'));
 console.log(`the new array is: ${basket}`);
 console.log('expect true:', addItem(basket, 'Peaunut Butter'));
 console.log('the new array is:', basket);
+
+//let's fill the basket to see if our new nested isFull() function works
+console.log('expect true:', addItem(basket, 'Wine'));
+console.log('expect true:', addItem(basket, 'Cheese'));
+console.log('expect true:', addItem(basket, 'Crackers'));
+console.log('expect false:', addItem(basket, 'Jam'));
+
 
 // create a function that logs each item in the basket
 // this also takes the array as an argument 
@@ -45,5 +66,7 @@ function empty (array) {
 // test empty
 console.log('expect an empty array returned:', empty(basket));
 
+
 // for next login:
+// fix how the isFull function broke the addItem function
 // do stretch goals
