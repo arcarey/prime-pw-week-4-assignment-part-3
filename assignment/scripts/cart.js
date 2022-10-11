@@ -59,14 +59,37 @@ listItems(basket);
 
 // create a function that empties an array
 function empty (array) {
-    array = [];
+    //array = [];
+    while (array[0]){
+        array.pop();
+    }
     return array;
 }
+
+
 
 // test empty
 console.log('expect an empty array returned:', empty(basket));
 
+// now lets reload that basket of items using our addItem function
+addItem(basket, "salami")
+addItem(basket, "water crackers")
+addItem(basket, "gouda")
+addItem(basket, "aged cheddar")
+addItem(basket, "smoked salmon")
 
+//take a look at what's in there
+console.log('the basket contains:',basket);
+
+// now we'll create a function that that will remove an item from the basket
+function removeItem(array, item) {
+    return array.splice(array.indexOf(item), 1);
+}
+
+
+console.log('We pulled this out of the basket:', removeItem (basket, "salami"));
+console.log('if we try to remove something not in the basket:', removeItem(basket, "soda")); //this isn't working yet! fix this use case
+
+console.log('now the basket contains:', basket);
 // for next login:
-// fix how the isFull function broke the addItem function
-// do stretch goals
+// fix removeItem when passed an item that's not in the array. Right now it is removing the last item in the array
