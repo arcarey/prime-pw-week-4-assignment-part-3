@@ -17,12 +17,12 @@ function addItem(array, item){
 }
 
 //testing wrong and right data types with this new function
-console.log(addItem(1, 'bread')); 
-console.log(addItem(basket, 1));
-console.log(addItem(basket, 'Bread'));
-console.log(basket);
-console.log(addItem(basket, 'Peaunut Butter'));
-console.log(basket);
+console.log('expect error:',addItem(1, 'bread')); 
+console.log('expect error:',addItem(basket, 1));
+console.log('expect true:', addItem(basket, 'Bread'));
+console.log(`the new array is: ${basket}`);
+console.log('expect true:', addItem(basket, 'Peaunut Butter'));
+console.log('the new array is:', basket);
 
 // create a function that logs each item in the basket
 // this also takes the array as an argument 
@@ -33,6 +33,7 @@ function listItems (array){
 }
 
 //test listItems
+console.log('expect basket items listed on newlines below:'); 
 listItems(basket);
 
 // create a function that empties an array
@@ -42,8 +43,7 @@ function empty (array) {
 }
 
 // test empty
-console.log(empty(basket));
+console.log('expect an empty array returned:', empty(basket));
 
 // for next login:
-// add better log text for testing
 // do stretch goals
