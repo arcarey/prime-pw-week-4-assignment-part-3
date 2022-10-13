@@ -83,7 +83,11 @@ console.log('the basket contains:',basket);
 
 // now we'll create a function that that will remove an item from the basket
 function removeItem(array, item) {
-    return array.splice(array.indexOf(item), 1);
+    if (array.includes(item)){   //the .splice() method returns the index of -1 which would pop off the last item of the array if an argument passed to it is not present in the array, 
+                                 //so we have to create a conditional to exclude using that method if the string is not present in the array.
+        return array.splice(array.indexOf(item), 1);
+    }
+    return null;
 }
 
 
@@ -91,5 +95,3 @@ console.log('We pulled this out of the basket:', removeItem (basket, "salami"));
 console.log('if we try to remove something not in the basket:', removeItem(basket, "soda")); //this isn't working yet! fix this use case
 
 console.log('now the basket contains:', basket);
-// for next login:
-// fix removeItem when passed an item that's not in the array. Right now it is removing the last item in the array
