@@ -94,11 +94,10 @@ console.log("the basket contains:", basket);
 //   return null;
 // }
 
-//rewrite this as a ternary operator for practice. 
+//rewrite this as a ternary operator for practice.
 function removeItem(array, item) {
-  return array.includes(item) ?  array.splice(array.indexOf(item), 1) : null;
+  return array.includes(item) ? array.splice(array.indexOf(item), 1) : null;
 }
-
 
 console.log("We pulled this out of the basket:", removeItem(basket, "salami"));
 console.log(
